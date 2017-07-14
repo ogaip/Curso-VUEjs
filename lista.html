@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>VUEjs Listas | .: ogaip-dev :.</title>
+</head>
+<body>
+	
+	<div id="main">
+		<ul>
+			<li v-for="p in people" v-text="p"></li>
+		</ul>
+		<input type="text" v-model="name" v-on:keyup.enter="addName">
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+
+	<script type="text/javascript">
+		new Vue({
+		
+			el: "#main",
+			data:{
+				people: ['Diego', 'Ale', 'Chini','Prince', 'Jonas',	'Angel', 'Alan']
+			},
+			name: '',
+			methods:{
+				addName: function () {
+					this.people.push(this.name);
+					this.name= '';
+				}
+			}
+		
+		});
+	</script>
+</body>
+</html>
